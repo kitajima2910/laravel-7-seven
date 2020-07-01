@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/customer/{name?}', function($name = null) {
+    return 'Hi ' . $name . '!!!';
+});
+
+Route::match(['get', 'post', 'put'], '/', function(Request $request) {
+    return $request->method();
+});
+
+Route::any('/test', function (Request $request) {
+    return $request->method();
+});

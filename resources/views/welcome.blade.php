@@ -80,6 +80,12 @@
             @endif
 
             <div class="content">
+                <x-header name="Admin" :letters="$letters">
+                    <x-slot name="title">
+                        This is title
+                    </x-slot>
+                    <p>Hello, HoaiPX</p> 
+                </x-header>
                 <div class="title m-b-md">
                     Laravel
                 </div>

@@ -13,8 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/user', 'UserController@index');
+// Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+
+Route::get('/posts', 'ClientController@getAllPosts');
+Route::get('/posts/{id}', 'ClientController@getPostById');
+// Route::get('/addPost', 'ClientController@addPost');
+// Route::get('/updatePost/{id}', 'ClientController@updatePost');
+
+Route::get('/test', 'TestController@index');
+
+
+Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@loginSubmit')->name('login.submit');
+
