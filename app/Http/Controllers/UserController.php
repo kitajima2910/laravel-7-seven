@@ -95,4 +95,25 @@ class UserController extends Controller
 
         return view('home');
     }
+
+    public function innerJoinClause() {
+        return DB::table('users')
+                    ->join('posts', 'posts.user_id', '=', 'users.id')
+                    ->select('users.id', 'users.email', 'posts.title')
+                    ->get();
+    }
+
+    public function leftJoinClause() {
+        return DB::table('users')
+                    ->leftJoin('posts', 'posts.user_id', '=', 'users.id')
+                    ->select('users.id', 'users.email', 'posts.title')
+                    ->get();
+    }
+
+    public function rightJoinClause() {
+        return DB::table('users')
+                    ->rightJoin('posts', 'posts.user_id', '=', 'users.id')
+                    ->select('users.id', 'users.email', 'posts.title')
+                    ->get();
+    }
 }
