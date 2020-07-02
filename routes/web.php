@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', 'UserController@index');
 // Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/about', function() {
+    return view('about');
+});
+Route::get('/contact', function() {
+    return view('contact');
+});
+
+
 
 Route::get('/posts', 'ClientController@getAllPosts');
 Route::get('/posts/{id}', 'ClientController@getPostById');
@@ -28,3 +36,7 @@ Route::get('/test', 'TestController@index');
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@loginSubmit')->name('login.submit');
 
+
+Route::get('/inner-join', 'UserController@innerJoinClause');
+Route::get('/left-join', 'UserController@leftJoinClause');
+Route::get('/right-join', 'UserController@rightJoinClause');

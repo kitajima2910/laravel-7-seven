@@ -20,8 +20,14 @@
             <div class="col-md-12">
                 <h2 class="mt-3">ĐĂNG NHẬP</h2>
                 <x-form action="{{ route('login.submit') }}" method="post" class="mt-3">
-                    <x-input placeholder="Nhập địa chỉ email" name="txtName"></x-input>
+                    <x-input placeholder="Nhập địa chỉ email" name="txtEmail"></x-input>
+                    @error('txtEmail')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
                     <x-input type="password" placeholder="Nhập mật khẩu" name="txtPassword"></x-input>
+                    @error('txtPassword')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
                     <x-button content="Đăng nhập"></x-button>
                 </x-form>
             </div>
