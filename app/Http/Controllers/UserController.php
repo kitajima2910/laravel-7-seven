@@ -2,13 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Phone;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Faker\Factory as Faker;
 
 class UserController extends Controller
 {
-    //
+    
+
+    public function insertRecord() {
+
+        $phone = new Phone([
+            'phone' => '0975646433'
+        ]);
+        $user = new User([
+            'name' => 'Hoài1',
+            'email' => 'hoaipx12@gmail.com',
+            'password' => bcrypt('secret')
+        ]);
+
+        $user->save();
+        $user->phone()->save($phone);
+        return 'Record has been created successfully!';
+    }
+
+    public function fetchPhoneByUser() {
+        $phone = User::find(4)->phone;
+        return $phone;
+    }
+
     public function index() {
 
         /** Eloquent ORM CRUD */

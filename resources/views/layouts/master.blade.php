@@ -16,6 +16,7 @@
         .active {
             color: red;
         }
+
     </style>
 </head>
 
@@ -34,12 +35,20 @@
                 </x-alert> --}}
 
                 <nav class="nav justify-content-center">
-                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/home">Home</a>
-                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}"  href="/about">About Us</a>
-                    <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="/contact">Contact Us</a>
-                    {{-- <a class="nav-link {{ 'home' == request()->path() ? 'active' : '' }}" href="/home">Home</a>
-                    <a class="nav-link {{ 'about' == request()->path() ? 'active' : '' }}"  href="/about">About Us</a>
-                    <a class="nav-link {{ 'contact' == request()->path() ? 'active' : '' }}" href="/contact">Contact Us</a> --}}
+                    <a class="nav-link {{ Request::is('home') ? 'active' : '' }}"
+                        href="/home">{{ __('message.home') }}</a>
+                    <a class="nav-link {{ Request::is('about') ? 'active' : '' }}"
+                        href="/about">{{ __('message.about_us') }}</a>
+                    <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}"
+                        href="/contact">{{ __('message.contact_us') }}</a>
+                    <a class="nav-link {{ Request::is('upload') ? 'active' : '' }}"
+                        href="/upload">{{ __('message.upload') }}</a>
+                    {{-- <a class="nav-link {{ 'home' == request()->path() ? 'active' : '' }}"
+                    href="/home">Home</a>
+                    <a class="nav-link {{ 'about' == request()->path() ? 'active' : '' }}"
+                        href="/about">About Us</a>
+                    <a class="nav-link {{ 'contact' == request()->path() ? 'active' : '' }}"
+                        href="/contact">Contact Us</a> --}}
                 </nav>
 
                 @yield('content')
