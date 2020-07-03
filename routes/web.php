@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/user', 'UserController@index');
 // Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/home/{locale}', 'HomeController@index');
+Route::get('/upload/{locale}', 'UploadController@uploadForm');
+Route::post('/upload', 'UploadController@uploadFile')->name('HoaiPXFile');
+Route::get('/home/HoaiPX', 'HomeController@index');
 Route::get('/about', function() {
     return view('about');
 });
 Route::get('/contact', function() {
     return view('contact');
 });
+
+Route::get('/add-user', 'UserController@insertRecord');
+Route::get('/phone-of-user', 'UserController@fetchPhoneByUser');
 
 
 
